@@ -3,15 +3,51 @@
 
     /* Colors */
     /* Primary */
-    --clr-blue-300: hsl(238, 22%, 44%);
     --clr-blue-100: hsl(243, 32%, 92%);
     --clr-blue-900: hsl(243, 87%, 12%);
     /* Accent */
     --clr-blue-accent: hsl(224, 93%, 58%);
-    --clr-blue-green-accent: hsl(170, 45%, 43%);
+    --clr-cyan-accent: hsl(170, 45%, 43%);
     /* Neutral */
     --clr-gray-100: hsl(240, 75%, 98%);
-    --clr-gray-200: hsl(0, 0%, 75%);
+
+    --background-one: white;
+    --background-two: var(--clr-gray-100);
+    --background-three: var(--clr-blue-100);
+    --background-four: var(--clr-blue-900);
+    --foreground: var(--clr-blue-900);
+    --btn-bg: var(--clr-blue-accent);
+    --btn-fg: white;
+
+    --svgLogo: var(--clr-blue-900);
+    --svgColorPrimary: var(--clr-blue-900);
+    --svgColorSecondary: white;
+    --svgColorFill: var(--clr-blue-900);
+}
+
+.darkmode {
+    /* Colors */
+    /* Primary */
+    --clr-blue-bg1: hsl(217, 28%, 15%);
+    --clr-blue-bg2: hsl(218, 28%, 13%);
+    --clr-blue-bg3: hsl(219, 30%, 18%);
+    --clr-blue-bg4: hsl(216, 53%, 9%);
+    /* Accent */
+    --clr-blue-accent: hsl(198, 60%, 50%);
+    --clr-cyan-accent: hsl(176, 68%, 64%);
+
+    --background-one: var(--clr-blue-bg1);
+    --background-two: var(--clr-blue-bg2);
+    --background-three: var(--clr-blue-bg3);
+    --background-four: var(--clr-blue-bg4);
+    --foreground: white;
+    --btn-bg: linear-gradient(90deg, var(--clr-cyan-accent), var(--clr-blue-accent));
+    --btn-fg: black;
+    
+    --svgLogo: white;
+    --svgColorPrimary: var(--clr-cyan-accent);
+    --svgColorSecondary: var(--clr-blue-bg2);
+    --svgColorFill: var(--clr-blue-bg2);
 }
 
 *,
@@ -23,7 +59,8 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    color: var(--clr-blue-900);
+    background-color: var(--background-one);
+    color: var(--foreground);
 }
 
 h1, h2, header {
@@ -38,6 +75,10 @@ h1 {
     margin-right: auto;
 }
 
+.nav-list li {
+    font-size: 0.875rem;
+}
+
 p {
     max-width: 60ch;
     margin: 0 auto;
@@ -45,7 +86,7 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--clr-blue-900);
+    color: var(--foreground);
 }
 
 section {
@@ -73,6 +114,8 @@ img {
     padding: 1rem 4rem;
     border: none;
     border-radius: 200px;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
 }
 
 .btn:hover {
@@ -81,7 +124,6 @@ img {
 
 header {
     margin: 1rem 2rem 0;
-
 }
 
 header .container {
@@ -91,26 +133,34 @@ header .container {
 }
 
 .logo {
-    width: 100px;
+    width: 80px;
     height: 100%;
 }
 
 .nav-list {
     list-style: none;
+    align-items: center;
 }
 
 .nav-list li + li {
     margin-left: 1rem;
 }
 
+#dark-mode-switch {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    background: transparent;
+    border: 2px solid var(--foreground);
+    border-radius: 5px;
+}
+
 .btn-cta {
-    background-color: var(--clr-blue-accent);
-    color: white;
     margin-top: 1.5rem;
 }
 
 #section-two, #section-three, #section-four {
-    background-color: var(--clr-gray-100);
+    background-color: var(--background-two);
 }
 
 .card {
@@ -127,9 +177,9 @@ header .container {
 }
 
 .cta a {
-    color: var(--clr-blue-green-accent);
+    color: var(--clr-cyan-accent);
     text-decoration: none;
-    border-bottom: 1px solid var(--clr-blue-green-accent);
+    border-bottom: 1px solid var(--clr-cyan-accent);
     padding-bottom: .25rem;
 }
 
@@ -145,10 +195,10 @@ header .container {
 }
 
 .quote-block {
-    background-color: white;
+    background-color: var(--background-one);
     margin: 2rem auto;
     border-radius: .5rem;
-    box-shadow: 0px 1px 10px lightgray;
+    box-shadow: 0px 1px 10px var(--background-four);
     max-width: 357px;
 }
 
@@ -171,11 +221,11 @@ header .container {
 
 #section-five {
     background: hsla(23, 41%, 9%, 1);
-    background: linear-gradient(var(--clr-gray-100) 50%, var(--clr-blue-300) 50%);
+    background: linear-gradient(var(--background-two) 50%, var(--background-four) 50%);
 }
 
 #section-five .container {
-    background-color: var(--clr-blue-100);
+    background-color: var(--background-three);
     border-radius: .5rem;
     padding: 2rem 1.5rem;
 }
@@ -189,12 +239,8 @@ header .container {
     margin-bottom: 2rem;
 }
 
-.email-btn {
-    background-color: white;
-}
-
 footer {
-    background-color: var(--clr-blue-900);
+    background-color: var(--background-four);
     color: white;
     padding: 2rem 0;
 }
@@ -241,6 +287,10 @@ footer .container > .row {
 
 
 @media screen and (min-width: 700px) {
+    .logo {
+        width: 120px;
+    }
+
     .nav-list li {
         padding-left: 4rem;
         font-size: 1rem;
@@ -288,7 +338,7 @@ footer .container > .row {
         width: 50%;
     }
 
-    .email-btn {
+    .btn-email {
         padding: 1rem 2rem;
     }
 }
