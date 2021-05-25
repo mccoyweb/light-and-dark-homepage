@@ -18,6 +18,7 @@
     --foreground: var(--clr-blue-900);
     --btn-bg: var(--clr-blue-accent);
     --btn-fg: white;
+    --box-shadow: var(--clr-blue-100);
 
     --svgLogo: var(--clr-blue-900);
     --svgColorPrimary: var(--clr-blue-900);
@@ -43,6 +44,7 @@
     --foreground: white;
     --btn-bg: linear-gradient(90deg, var(--clr-cyan-accent), var(--clr-blue-accent));
     --btn-fg: black;
+    --box-shadow: var(--clr-blue-bg4);
     
     --svgLogo: white;
     --svgColorPrimary: var(--clr-cyan-accent);
@@ -198,7 +200,7 @@ header .container {
     background-color: var(--background-one);
     margin: 2rem auto;
     border-radius: .5rem;
-    box-shadow: 0px 1px 10px var(--background-four);
+    box-shadow: 0px 1px 10px var(--box-shadow);
     max-width: 357px;
 }
 
